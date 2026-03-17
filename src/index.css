@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-calligraphy: "Great Vibes", cursive;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-aqua: #72c4b9;
+  --color-gold: #c5a059;
+  --color-pearl: #fdfcf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-pearl);
+  color: #333;
+  overflow-x: hidden;
+}
+
+.gold-gradient {
+  background: linear-gradient(45deg, #c5a059, #f1d592, #c5a059);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.1em 0.2em;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+  line-height: 1.2;
+}
+
+.bg-aqua-soft {
+  background-color: rgba(114, 196, 185, 0.1);
+}
+
+.border-gold {
+  border-color: #c5a059;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a059;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a6854a;
+}
