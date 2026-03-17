@@ -20,7 +20,14 @@ import {
   Sparkles,
   Camera,
   Map as MapIcon,
-  Shirt
+  Shirt,
+  Zap,
+  PartyPopper,
+  Music2,
+  Star,
+  Utensils,
+  Mic2,
+  GlassWater
 } from 'lucide-react';
 
 // Constants
@@ -40,14 +47,14 @@ const IMAGES = [
 ];
 
 const ITINERARY = [
-  { time: '7:00 PM', event: 'Recepción de invitados' },
-  { time: '7:45 PM', event: 'Ingreso de la quinceañera' },
-  { time: '8:00 PM', event: 'Ceremonia simbólica' },
-  { time: '8:30 PM', event: 'Vals principal' },
-  { time: '9:00 PM', event: 'Cena y brindis' },
-  { time: '10:00 PM', event: 'Presentación artística' },
-  { time: '11:30 PM', event: 'Hora loca' },
-  { time: '12:30 AM', event: 'Gran fiesta' }
+  { time: '7:00 PM', event: 'Recepción de invitados', icon: Users },
+  { time: '7:45 PM', event: 'Ingreso de la quinceañera', icon: Star },
+  { time: '8:00 PM', event: 'Ceremonia simbólica', icon: Sparkles },
+  { time: '8:30 PM', event: 'Vals principal', icon: Music },
+  { time: '9:00 PM', event: 'Cena y brindis', icon: Utensils },
+  { time: '10:00 PM', event: 'Presentación artística', icon: Mic2 },
+  { time: '11:30 PM', event: 'Hora loca', icon: PartyPopper },
+  { time: '12:30 AM', event: 'Gran fiesta', icon: Zap }
 ];
 
 // Components
@@ -472,23 +479,33 @@ export default function App() {
 
       {/* 4. Contador Regresivo */}
       <section className="py-20 bg-aqua-soft">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center space-y-12"
+        >
           <div className="space-y-2">
             <h2 className="text-gold font-serif text-sm tracking-[0.3em] uppercase">Faltan solo</h2>
             <h3 className="text-3xl md:text-5xl font-serif text-aqua">Para el gran día</h3>
           </div>
           <Countdown />
-        </div>
+        </motion.div>
       </section>
 
       {/* 5. Galería de Fotos */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto space-y-16">
-          <div className="text-center space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4"
+          >
             <Camera className="text-gold mx-auto w-8 h-8" />
             <h2 className="text-4xl md:text-6xl font-calligraphy text-aqua">Mis Recuerdos</h2>
             <p className="text-gray-500 font-serif tracking-widest uppercase text-xs">Momentos especiales</p>
-          </div>
+          </motion.div>
           <Gallery />
         </div>
       </section>
@@ -568,13 +585,23 @@ export default function App() {
       {/* 8. Mapa Interactivo */}
       <section className="py-24 px-6 bg-aqua-soft">
         <div className="max-w-5xl mx-auto space-y-12">
-          <div className="text-center space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4"
+          >
             <MapIcon className="text-gold mx-auto w-8 h-8" />
             <h2 className="text-4xl md:text-6xl font-calligraphy text-aqua">Ubicación</h2>
             <p className="text-gray-600 font-serif">Te esperamos en este hermoso lugar</p>
-          </div>
+          </motion.div>
           
-          <div className="bg-white p-4 rounded-[2rem] shadow-2xl space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-white p-4 rounded-[2rem] shadow-2xl space-y-4"
+          >
             <div className="w-full rounded-2xl overflow-hidden shadow-lg">
               <img 
                 src="https://res.cloudinary.com/dcnynnstm/image/upload/v1773723965/497927484_1363051325167172_558942534762591556_n_w2cdp4.jpg" 
@@ -594,7 +621,7 @@ export default function App() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
+          </motion.div>
 
           <div className="text-center">
             <motion.a
@@ -613,11 +640,16 @@ export default function App() {
       {/* 9. Itinerario de la Noche */}
       <section className="py-24 px-6 bg-white overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-16">
-          <div className="text-center space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4"
+          >
             <Clock className="text-gold mx-auto w-8 h-8" />
             <h2 className="text-4xl md:text-6xl font-calligraphy text-aqua">Itinerario</h2>
             <p className="text-gray-500 font-serif tracking-widest uppercase text-xs">El desarrollo de la noche</p>
-          </div>
+          </motion.div>
 
           <div className="relative">
             <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
@@ -629,13 +661,31 @@ export default function App() {
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className={`flex items-center gap-8 ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  className={`flex items-center gap-4 md:gap-8 ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                 >
                   <div className={`flex-1 ${i % 2 === 0 ? 'text-right' : 'text-left'}`}>
                     <p className="text-gold font-bold text-lg md:text-2xl font-serif">{item.time}</p>
                     <p className="text-gray-700 text-lg md:text-xl font-serif">{item.event}</p>
                   </div>
-                  <div className="relative z-10 w-4 h-4 bg-gold rounded-full shadow-[0_0_15px_rgba(197,160,89,0.5)]" />
+                  
+                  <div className="relative flex items-center justify-center">
+                    <motion.div 
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 5, -5, 0]
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity,
+                        delay: i * 0.2
+                      }}
+                      className="relative z-10 w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-gold rounded-full flex items-center justify-center shadow-xl text-gold"
+                    >
+                      <item.icon size={24} className="md:w-8 md:h-8" />
+                    </motion.div>
+                    <div className="absolute w-4 h-4 bg-gold rounded-full blur-sm opacity-50 animate-pulse" />
+                  </div>
+
                   <div className="flex-1" />
                 </motion.div>
               ))}
@@ -647,10 +697,15 @@ export default function App() {
       {/* 10. Shows y Presentaciones */}
       <section className="py-24 px-6 bg-pearl">
         <div className="max-w-6xl mx-auto space-y-16">
-          <div className="text-center space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center space-y-4"
+          >
             <Music className="text-gold mx-auto w-8 h-8" />
             <h2 className="text-4xl md:text-6xl font-calligraphy text-aqua">Shows & Música</h2>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -661,6 +716,10 @@ export default function App() {
             ].map((show, i) => (
               <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
                 className={`${show.color} p-8 rounded-3xl text-center space-y-2 border border-white/50 backdrop-blur-sm`}
               >
@@ -670,19 +729,76 @@ export default function App() {
             ))}
           </div>
 
-          <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gold/20 text-center space-y-8">
-            <div className="space-y-2">
-              <h3 className="text-3xl font-serif text-gold italic">Hora Loca Temática</h3>
-              <p className="text-gray-600">Una explosión de alegría y luces</p>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl border border-gold/20 text-center space-y-10"
+          >
+            <div className="space-y-4">
+              <div className="flex justify-center gap-4">
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <PartyPopper className="text-gold w-10 h-10" />
+                </motion.div>
+                <h3 className="text-4xl md:text-5xl font-calligraphy text-gold italic">Hora Loca Temática</h3>
+                <motion.div
+                  animate={{ rotate: [0, -10, 10, 0], scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                >
+                  <Zap className="text-aqua w-10 h-10" />
+                </motion.div>
+              </div>
+              <p className="text-gray-600 text-lg font-serif">Una explosión de alegría, luces y diversión sin límites</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {['Robots LED', 'Batucada', 'Personajes Luminosos', 'Cotillón Premium'].map((tag, i) => (
-                <span key={i} className="px-6 py-2 bg-aqua/10 text-aqua rounded-full text-sm font-semibold tracking-wider">
-                  {tag}
-                </span>
-              ))}
+
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                  {[
+                    { name: 'Robots LED', icon: Zap },
+                    { name: 'Batucada', icon: Music2 },
+                    { name: 'Personajes', icon: Star },
+                    { name: 'Cotillón', icon: PartyPopper }
+                  ].map((item, i) => (
+                    <motion.span 
+                      key={i} 
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-center gap-2 px-6 py-3 bg-aqua/10 text-aqua rounded-full text-sm font-semibold tracking-wider border border-aqua/20"
+                    >
+                      <item.icon size={16} />
+                      {item.name}
+                    </motion.span>
+                  ))}
+                </div>
+                <p className="text-gray-500 italic text-sm md:text-left">
+                  Prepárate para la mejor fiesta de tu vida con efectos especiales y mucha energía.
+                </p>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative group overflow-hidden rounded-2xl shadow-2xl aspect-video md:aspect-square"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" 
+                  alt="Hora Loca Referencia" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                  <p className="text-white font-serif italic text-sm">Diversión garantizada</p>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -715,13 +831,21 @@ export default function App() {
         </motion.div>
 
         <div className="relative z-10 max-w-3xl mx-auto space-y-10">
-          <div className="space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
             <h2 className="text-5xl md:text-7xl font-calligraphy">¿Nos acompañas?</h2>
             <p className="text-xl font-serif opacity-90">Por favor, confirma tu asistencia antes del 1 de Julio</p>
-          </div>
+          </motion.div>
 
           <motion.button
             onClick={() => setIsModalOpen(true)}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-white text-aqua px-12 py-5 rounded-full font-bold text-lg tracking-widest shadow-2xl hover:shadow-white/20 transition-all"
@@ -733,7 +857,12 @@ export default function App() {
 
       {/* 13. Footer Final */}
       <footer className="py-24 px-6 bg-pearl text-center border-t border-gold/10">
-        <div className="max-w-4xl mx-auto space-y-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto space-y-12"
+        >
           <div className="space-y-6">
             <p className="text-2xl md:text-3xl font-serif italic text-gray-700 leading-relaxed">
               "Gracias por ser parte de este momento tan especial en mi vida.
@@ -754,7 +883,7 @@ export default function App() {
           <p className="text-[10px] text-gold/50 uppercase tracking-[0.5em] pt-12">
             Hecho con amor para Valeria
           </p>
-        </div>
+        </motion.div>
       </footer>
     </motion.div>
   )}
